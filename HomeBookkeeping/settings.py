@@ -25,7 +25,7 @@ SECRET_KEY = 'zw3^n$&_1fxy15#b%zd(i^of)=s*+=&1h!2asyvsvd&xtychhm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['homebookkeeing.loc']
 
 
 # Application definition
