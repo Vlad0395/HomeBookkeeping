@@ -3,7 +3,7 @@ import { Router } from '../Router';
 import { UserStore } from './Auth/UserStore';
 
 import { StoreProvider } from '../stores/store';
-
+import '../assets/scss/theme.scss'
 const stores = {
   userStore: new UserStore(),
 };
