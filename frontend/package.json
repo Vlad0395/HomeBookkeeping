@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development ",
+    "dev": "webpack --mode development --watch --progress ",
     "build": "webpack --mode production ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch --progress"
+    "eslint": "node_modules/.bin/eslint --ext, .tsx,.ts --fix --ignore-pattern '!.eslintrc' --max-warnings=0 ./src"
   },
   "keywords": [],
   "author": "",
@@ -19,17 +19,33 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.12.1",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
     "babel-loader": "^8.2.0",
     "css-loader": "^5.0.1",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^6.0.3",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.2",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-switch": "^5.0.1",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "typescript": "^4.0.5",
     "webpack": "^5.6.0",
-    "webpack-cli": "^4.2.0"
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "@fullcalendar/bootstrap": "^5.4.0",
@@ -40,8 +56,10 @@
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
     "@types/react-router-dom": "^5.1.6",
+    "@typescript-eslint/parser": "^4.9.0",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "eslint-config-react-app": "^6.0.0",
     "mobx-react": "^7.0.4",
     "mobx-react-lite": "^3.1.5",
     "react-bootstrap": "^1.4.0",
@@ -49,5 +67,16 @@
     "reactstrap": "^8.7.1",
     "resolve-url-loader": "^3.1.2",
     "url-loader": "^4.1.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "node_modules/.bin/eslint --fix --ignore-pattern '!.eslintrc' --max-warnings=0",
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
