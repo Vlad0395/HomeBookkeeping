@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, CardBody, CardTitle, Badge, Button } from 'reactstrap'
+import { Link } from 'react-router-dom'
+import { Card, CardBody, CardTitle, Badge, Button, Row, Col } from 'reactstrap'
 
 export const PageAllTransactions = () => {
     const transactions = [
@@ -44,16 +45,6 @@ export const PageAllTransactions = () => {
             link: '#',
         },
         {
-            id: 'customCheck6',
-            billingName: 'Ronald Taylor',
-            Date: '04 Oct, 2019',
-            total: '$404',
-            badgeClass: 'warning',
-            paymentType: 'Refund',
-            methodIcon: 'fa-cc-visa',
-            link: '#',
-        },
-        {
             id: 'customCheck7',
             billingName: 'Jacob Hunter',
             Date: '04 Oct, 2019',
@@ -69,7 +60,19 @@ export const PageAllTransactions = () => {
         <>
             <Card>
                 <CardBody>
-                    <CardTitle className="mb-4">Всі транзакції</CardTitle>
+                    <Row className="w-100">
+                        <Col>
+                            <CardTitle className="mb-4">Всі транзакції</CardTitle>
+                        </Col>
+                        <Col className="text-right">
+                            <Link
+                                to="/transaction/add-transaction"
+                                className=" btn btn-outline-success waves-effect waves-light"
+                            >
+                                Додати транзакцію
+                            </Link>
+                        </Col>
+                    </Row>
                     <div className="table-responsive">
                         <table className="table table-centered table-nowrap mb-0">
                             <thead className="thead-light">
@@ -121,6 +124,7 @@ export const PageAllTransactions = () => {
                                                 type="button"
                                                 color="primary"
                                                 size="sm"
+                                                outline
                                                 className="btn-rounded waves-effect waves-light"
                                             >
                                                 Переглянути деталі

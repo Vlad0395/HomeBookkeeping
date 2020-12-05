@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect, RouteProps } from 'react-router
 
 import { Login } from './components/Auth/Login'
 import { Dashboard } from './components/pages/Dashboard/Dashboard'
+import { AddTransaction } from './components/pages/Transactions/AddTransaction'
 import { PageAllTransactions } from './components/pages/Transactions/PageAllTransactions'
 import { PageWrapper } from './components/PageWrapper/PageWrapper'
 
@@ -22,8 +23,9 @@ export const Router = () => {
         <BrowserRouter>
             <Switch>
                 <Route path="/login" exact component={Login} />
-                <ProtectedRoute path="/dashboard" component={Dashboard} />
-                <ProtectedRoute path="/transaction" component={PageAllTransactions} />
+                <ProtectedRoute path="/dashboard" exact component={Dashboard} />
+                <ProtectedRoute path="/transaction" exact component={PageAllTransactions} />
+                <ProtectedRoute path="/transaction/add-transaction" exact component={AddTransaction} />
             </Switch>
         </BrowserRouter>
     )
