@@ -40,7 +40,7 @@ export const Login = () => {
         if (token) {
             history.push('/dashboard')
         }
-    })
+    }, [])
     return (
         <>
             <div className="home-btn d-none d-sm-block">
