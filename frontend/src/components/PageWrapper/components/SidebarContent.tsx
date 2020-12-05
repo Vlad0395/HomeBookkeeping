@@ -60,7 +60,7 @@ export const WrapperSidebarContent: React.FC<RouteComponentProps & PropsSidebarC
                 <ul className="metismenu list-unstyled" id="side-menu">
                     <li className="menu-title">Menu</li>
                     <li>
-                        <Link to="/dashboard" className="waves-effect">
+                        <Link to="/transaction" className="waves-effect">
                             <i className="bx bx-home-circle"></i>
                             {/* <span className="badge badge-pill badge-info float-right">03</span> */}
                             <span>Транзакції</span>
