@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useStore } from '../../stores/store'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
@@ -8,7 +8,11 @@ interface PropsPageWrapper {}
 
 export const PageWrapper: React.FC<PropsPageWrapper> = (props) => {
     const { headerStore } = useStore()
-    const { leftSideBarType } = headerStore
+    const { leftSideBarType } = headerStore!
+    useEffect(() => {
+        headerStore.changeSidebarTheme(headerStore.leftSideBarTheme)
+        headerStore.changeSidebarType(headerStore.leftSideBarType, headerStore.isMobile)
+    }, [])
     return (
         <div>
             <Header />

@@ -3,18 +3,25 @@ import { Link } from 'react-router-dom'
 import logo from '../../../assets/images/logo.svg'
 import logoLightPng from '../../../assets/images/logo-light.png'
 import logoLightSvg from '../../../assets/images/logo-light.svg'
-import logoDark from '../../../assets/images/logo-dark.png'
-import { useStore } from '../../../stores/store'
+import logoDark from '../../../assets/images/logo-dark2.png'
+import { withStore } from '../../../stores/store'
 import { ProfileMenu } from './ProfileMenu'
+import { observer } from 'mobx-react'
+import { HeaderStore } from '../../../stores/headearStore'
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 
-export const Header = () => {
-    const { headerStore } = useStore()
+interface PropsWrapper {
+    headerStore?: HeaderStore
+}
+
+const WrapperHeader = (props: PropsWrapper) => {
+    console.log('this.props', props)
+    const { headerStore } = props
     const [search, setsearch] = useState(false)
 
     const handleClick = () => {
-        const { toggleLeftmenu, leftMenu, leftSideBarType, changeSidebarType } = headerStore
+        const { toggleLeftmenu, leftMenu, leftSideBarType, changeSidebarType } = headerStore!
         toggleLeftmenu(!leftMenu)
         if (leftSideBarType === 'default') {
             changeSidebarType('condensed', isMobile)
@@ -33,7 +40,7 @@ export const Header = () => {
                                     <img src={logo} alt="" height="22" />
                                 </span>
                                 <span className="logo-lg">
-                                    <img src={logoDark} alt="" height="17" />
+                                    <img src={logoDark} alt="" height="27" />
                                 </span>
                             </Link>
 
@@ -102,7 +109,10 @@ export const Header = () => {
                                 </form>
                             </div>
                         </div>
-
+                        {/* <div style={{margin:100}}>
+                            <button onClick={()=>headerStore.click(headerStore.test+1)}>click</button>
+                            {headerStore.test}
+                        </div> */}
                         <ProfileMenu />
                     </div>
                 </div>
@@ -110,3 +120,5 @@ export const Header = () => {
         </>
     )
 }
+
+export const Header = withStore(observer(WrapperHeader))

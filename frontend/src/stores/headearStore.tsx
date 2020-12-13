@@ -28,7 +28,7 @@ export class HeaderStore {
     showRightSidebar = INIT_STATE.showRightSidebar
     isMobile = INIT_STATE.isMobile
     showSidebar = INIT_STATE.showSidebar
-
+    test = 100
     toggleLeftmenu = (isOpen: boolean) => {
         this.leftMenu = isOpen
     }
@@ -83,5 +83,14 @@ export class HeaderStore {
 
     showRightSidebarAction = (showRightSidebar: boolean) => {
         this.showRightSidebar = showRightSidebar
+    }
+    changeSidebarTheme = (theme: string) => {
+        this.changeBodyAttribute('data-sidebar', theme)
+    }
+
+    Layout = () => {}
+
+    click = (num: number) => {
+        this.test = num
     }
 }
