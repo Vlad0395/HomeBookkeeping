@@ -4,20 +4,15 @@ import logo from '../../../assets/images/logo.svg'
 import logoLightPng from '../../../assets/images/logo-light.png'
 import logoLightSvg from '../../../assets/images/logo-light.svg'
 import logoDark from '../../../assets/images/logo-dark2.png'
-import { withStore } from '../../../stores/store'
+import { useStore } from '../../../stores/store'
 import { ProfileMenu } from './ProfileMenu'
 import { observer } from 'mobx-react'
-import { HeaderStore } from '../../../stores/headearStore'
+// import { HeaderStore } from '../../../stores/headearStore'
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 
-interface PropsWrapper {
-    headerStore?: HeaderStore
-}
-
-const WrapperHeader = (props: PropsWrapper) => {
-    console.log('this.props', props)
-    const { headerStore } = props
+const WrapperHeader = () => {
+    const { headerStore } = useStore()
     const [search, setsearch] = useState(false)
 
     const handleClick = () => {
@@ -121,4 +116,4 @@ const WrapperHeader = (props: PropsWrapper) => {
     )
 }
 
-export const Header = withStore(observer(WrapperHeader))
+export const Header = observer(WrapperHeader)

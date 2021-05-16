@@ -65,6 +65,11 @@ export const WrapperSidebarContent: React.FC<RouteComponentProps & PropsSidebarC
                             {/* <span className="badge badge-pill badge-info float-right">03</span> */}
                             <span>Транзакції</span>
                         </Link>
+                        <Link to="/landlord" className="waves-effect">
+                            <i className="bx bx bx-user"></i>
+                            {/* <span className="badge badge-pill badge-info float-right">03</span> */}
+                            <span>Орендодавці</span>
+                        </Link>
                     </li>
                 </ul>
             </div>

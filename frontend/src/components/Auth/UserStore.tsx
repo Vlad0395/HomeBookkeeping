@@ -5,7 +5,7 @@ export class UserStore {
     constructor() {
         makeAutoObservable(this)
     }
-
+    _token: string = ''
     login = async (data: { username: string; password: string }, callBack: () => void) => {
         try {
             const response = await api.post('api/token/', data)
@@ -18,5 +18,9 @@ export class UserStore {
     logout = () => {
         localStorage.clear()
         window.location.href = '/login'
+    }
+
+    setTokenInStore = (token: string) => {
+        this._token = token
     }
 }

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from transactions.api.v1.views import TransactionListCreateView, TransactionRetrieveUpdateDestroyView, TransactionSourceListCreateView, TransactionSourceRetrieveUpdateDestroyView
+from transactions.api.v1.views import TransactionListCreateView, TransactionRetrieveUpdateDestroyView, TransactionSourceListCreateView, TransactionSourceRetrieveUpdateDestroyView, LandlordSourceListCreateView
 
 
 urlpatterns = [
@@ -11,5 +11,8 @@ urlpatterns = [
     # transaction source
     path('sources/', TransactionSourceListCreateView.as_view()),
     path('sources/<int:pk>/', TransactionSourceRetrieveUpdateDestroyView.as_view()),
+    # link for create landlord
+    path('create_landlord/', LandlordSourceListCreateView.as_view()),
+    path('landlords/', LandlordSourceListCreateView.as_view())
 
 ]

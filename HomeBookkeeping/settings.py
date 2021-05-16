@@ -25,7 +25,7 @@ SECRET_KEY = 'zw3^n$&_1fxy15#b%zd(i^of)=s*+=&1h!2asyvsvd&xtychhm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['homebookkeeing.loc']
+ALLOWED_HOSTS = ['homebookkeeing.loc', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
 
     'rest_framework',
 
@@ -73,6 +74,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'HomeBookkeeping.wsgi.application'
+
 
 
 # Database
@@ -139,3 +141,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '../frontend/static'
+

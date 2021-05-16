@@ -31,3 +31,18 @@ class TransactionSource (models.Model):
     class Meta:
         verbose_name = 'Джерело транзакції'
         verbose_name_plural = 'Джерела транзакцій'
+
+
+class LandlordSource (models.Model):
+    first_name = models.CharField(verbose_name='Ім\'я',
+                                  max_length=255)
+    last_name = models.CharField(verbose_name='Прізвище',
+                                 max_length=255)
+    middle_name = models.CharField(verbose_name='По-батькові',
+                                   max_length=255)
+    amount_of_land = models.CharField(verbose_name='Кількість землі',
+                                      max_length=255)
+    contact_number = models.CharField(verbose_name='Телефон',
+                                      max_length=255)
+    note = models.CharField(verbose_name='Нотатки',
+                            max_length=255)

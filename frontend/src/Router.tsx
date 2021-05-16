@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route, Redirect, RouteProps } from 'react-router
 
 import { Login } from './components/Auth/Login'
 import { Dashboard } from './components/pages/Dashboard/Dashboard'
+import { AddedEditLandlord } from './components/pages/Landlords/AddedEditLandlord'
+import { PageLandlords } from './components/pages/Landlords/PageLandlords'
 import { AddTransaction } from './components/pages/Transactions/AddTransaction'
 import { PageAllTransactions } from './components/pages/Transactions/PageAllTransactions'
 import { PageWrapper } from './components/PageWrapper/PageWrapper'
@@ -24,8 +26,11 @@ export const Router = () => {
             <Switch>
                 <Route path="/login" exact component={Login} />
                 <ProtectedRoute path="/dashboard" exact component={Dashboard} />
+
                 <ProtectedRoute path="/transaction" exact component={PageAllTransactions} />
                 <ProtectedRoute path="/transaction/add-transaction" exact component={AddTransaction} />
+                <ProtectedRoute path="/landlord" exact component={PageLandlords} />
+                <ProtectedRoute path="/landlord/create" exact component={AddedEditLandlord} />
             </Switch>
         </BrowserRouter>
     )
